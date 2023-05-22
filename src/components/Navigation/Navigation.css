@@ -29,8 +29,8 @@
     width: max-content;
     height: fit-content;
     position: absolute;
-    top: 10px;
-    left: 8px;
+    top: 15px;
+    left: 15px;
     list-style: none;
     background-color: #5a8967;
     color: #e5dac0;
@@ -42,11 +42,12 @@
 .menu-link {
     width: 100%;
     cursor: pointer;
+    border-bottom: 1px solid #e5dac0;
 }
 
 .menu-link:hover {
     color: #d1b63a;
-    background-color: #3d5f47;
+    background-color: #4e7559;
 }
 
 .menu-link li {
