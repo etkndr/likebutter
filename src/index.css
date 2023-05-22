@@ -1,0 +1,28 @@
+* {
+  letter-spacing: 1px;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Instrument Sans', sans-serif;
+  color: #5a8967;
+  font-size: 11pt;
+  background-color: #e5dac0;
+}
+
+a {
+  color: #5a8967;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
