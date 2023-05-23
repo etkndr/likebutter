@@ -1,3 +1,13 @@
 .content {
     margin: 0 50px 0 50px;
+    min-height: 100%;
+}
+
+.main-img {
+    display: flex;
+    justify-content: center;
+}
+
+.main-img img {
+    width: 60%;
 }

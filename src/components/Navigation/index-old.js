@@ -2,8 +2,9 @@ import { NavLink, useHistory } from "react-router-dom";
 import {Dropdown, DropdownButton} from "react-bootstrap"
 import React, { useState, useEffect, useRef } from "react";
 import "./Navigation.css"
+import lbSmall from "../../assets/LB-small.png"
 
-export default function Navigation() {
+export default function NavigationOld() {
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
     const history = useHistory()
@@ -11,7 +12,6 @@ export default function Navigation() {
     const openMenu = () => {
         if (showMenu) {
             setShowMenu(false)
-            return history.push("/");
         }
         setShowMenu(true);
       };
@@ -44,14 +44,26 @@ export default function Navigation() {
     return (
         <div className="nav-bar">
             <div className="nav-links">
-                <div className="menu-item-lb">
-                <button onClick={openMenu} className="menu-btn">Like Butter</button>
-                <ul className={dropDown} ref={ulRef}>
-                    <div className="menu-link"><li>What we do</li></div>
-                    <div className="menu-link"><li>Testimonials</li></div>
-                    <div className="menu-link"><li>Meet the owners</li></div>
-                </ul>
+                <div className="nav-logo">
+                    <img src={lbSmall} alt="lb-small"/>
                 </div>
+                <div className="menu-item-lb">
+                    <button onClick={openMenu} className="menu-btn">Like Butter</button>
+                    <ul className={dropDown} ref={ulRef}>
+                        <div className="menu-link"><li>What we do</li></div>
+                        <div className="menu-link"><li>Testimonials</li></div>
+                        <div className="menu-link"><li>Meet the owners</li></div>
+                    </ul>
+                    </div>
+
+                    <div className="menu-item-menus">
+                    <button onClick={openMenu} className="menu-btn">Menus</button>
+                    <ul className={dropDown} ref={ulRef}>
+                        <div className="menu-link"><li>Breakfast bar</li></div>
+                        <div className="menu-link"><li>Taco bar</li></div>
+                        <div className="menu-link"><li>Sandwich bar</li></div>
+                    </ul>
+                    </div>
             </div>
         </div>
     )

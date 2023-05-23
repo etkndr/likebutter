@@ -1,48 +1,100 @@
-.nav-bar {
-    height: 100px;
+.nav-area {
+    height: 50px;
+    width: 100%;
     border-bottom: 0;
-    display: grid;
-    align-items: end;
-    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 2%;
 }
 
-.menu-btn {
-    border: 0;
-    background-color: rgba(255,255,255, 0);
-    color: #5a8967;
+.menus {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
     font-size: 10pt;
     font-weight: 600;
+}
+
+.menu-items {
+    position: relative;
+}
+
+.menu-items a {
+    display: block;
+    text-decoration: none;
+}
+
+.menu-items button {
+    border: none;
+    background-color: transparent;
     cursor: pointer;
+    width: 100%;
+    color: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    padding: 0;
+    margin-top: 0;
 }
 
-.menu-item-lb {
-    position: absolute;
-    left: 50px;
-    top: 50px;
+.submenu-items a{
+    color: #d1b63a;
+    padding: 5px;
+    display: flex;
+    font-size: 10pt;
+    font-weight: 600;
+    justify-content: center;
+    border-bottom: 1px solid #e5dac0;
 }
 
-.menu-item-hide {
+.submenu-items a:hover {
+    text-decoration: none;
+    background-color: #456b50;
+}
+
+.dropdown {
     display: none;
-}
-
-.menu-item-vis {
+    position: absolute;
+    margin-top: 5px;
+    left: -48%;
     width: max-content;
     height: fit-content;
-    position: absolute;
-    top: 15px;
-    left: 15px;
     list-style: none;
-    background-color: #5a8967;
-    color: #e5dac0;
-    font-size: 10pt;
-    font-weight: 600;
     padding: 0;
 }
 
-.menu-link {
+.dropdown.show {
+    display: flex;
+    flex-direction: column;
+    background-color: #5a8967;
+}
+
+.menu-item a, .menu-item a:hover{
+    border: 0;
+    text-decoration: none;
+    color: #5a8967;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+.nav-logo img {
+    margin-top: 15px;
+    height: 100px;
+    padding: 0;
+}
+
+/* .submenu-items {
     width: 100%;
     cursor: pointer;
     border-bottom: 1px solid #e5dac0;
+    display: flex;
+    justify-content: center;
+    color: #d1b63a;
 }
 
 .menu-link:hover {
@@ -52,4 +104,4 @@
 
 .menu-link li {
     padding: 10px;
-}
+} */
