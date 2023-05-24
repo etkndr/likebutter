@@ -1,28 +1,54 @@
 export const menuItems = [
     {
-      title: 'Home',
-      url: '/',
-    },
-    {
-      title: 'Services',
-      url: '/services',
+      title: 'company',
+      url: '/about',
       submenu: [
         {
-          title: 'Services',
-          url: 'web-design',
+          title: 'meet the owners',
+          url: 'owners',
         },
         {
-          title: 'web development',
-          url: 'web-dev',
+          title: 'our mission',
+          url: 'mission',
         },
         {
-          title: 'SEO',
-          url: 'seo',
+          title: 'who we serve',
+          url: 'service',
         },
+        {
+          title: "contact us",
+          url: "contact"
+        }
       ],
     },
     {
-      title: 'About',
-      url: '/about',
+      title: "menus",
+      url: "/menus",
+      submenu: [
+        {
+          title: "breakfast bar",
+          url: "breakfast"
+        },
+        {
+          title: "taco bar",
+          url: "tacos"
+        },
+        {
+          title: "sandwich bar",
+          url: "sandwiches"
+        },
+        {
+          title: "southern comfort",
+          url: "southern"
+        }
+      ]
     },
+    {
+      title: "gallery",
+      url: "/gallery"
+    },
+    {
+      title: "booking",
+      url: "/booking"
+    }
   ];

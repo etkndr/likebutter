@@ -1,11 +1,12 @@
 import "./Navigation.css"
 import Dropdown from "./Dropdown"
 import { NavLink } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export default function MenuItems({items}) {
     const [dropdown, setDropdown] = useState(false)
     const [upDown, setUpDown] = useState("v")
+    let ref = useRef()
 
     const dropClick = () => {
         if (dropdown) {
@@ -17,8 +18,24 @@ export default function MenuItems({items}) {
         }
     }
 
+    useEffect(() => {
+        const handler = (event) => {
+         if (dropdown && ref.current && !ref.current.contains(event.target)) {
+            setUpDown("∨")
+            setDropdown(false);
+         }
+        };
+        document.addEventListener("mousedown", handler);
+        document.addEventListener("touchstart", handler);
+
+        return () => {
+         document.removeEventListener("mousedown", handler);
+         document.removeEventListener("touchstart", handler);
+        };
+       }, [dropdown]);
+
     return (
-        <li className="menu-items">
+        <li className="menu-items" ref={ref}>
             {items.submenu ? (
                 <>
                     <button
@@ -26,7 +43,7 @@ export default function MenuItems({items}) {
                         aria-haspopup="menu"
                         aria-expanded={dropdown ? "true" : "false"}
                         onClick={dropClick}>
-                            {items.title}{" "}{items.submenu && <span className="arrow">{upDown}</span>}
+                            {items.title}{" "}{items.submenu && <div className="arrow">{upDown}</div>}
                     </button>
                     <Dropdown submenus={items.submenu} dropdown={dropdown} />
                 </>

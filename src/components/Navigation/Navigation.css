@@ -27,7 +27,6 @@
 
 .menu-items a {
     display: block;
-    text-decoration: none;
 }
 
 .menu-items button {
@@ -42,9 +41,13 @@
     margin-top: 0;
 }
 
+.menu-items button:hover {
+    text-decoration: underline;
+}
+
 .submenu-items a{
     color: #d1b63a;
-    padding: 5px;
+    padding: 5px 10px;
     display: flex;
     font-size: 10pt;
     font-weight: 600;
@@ -57,11 +60,17 @@
     background-color: #456b50;
 }
 
+.arrow {
+    font-size: 8pt;
+    font-weight: 400;
+    display: inline-flex;
+}
+
 .dropdown {
     display: none;
     position: absolute;
     margin-top: 5px;
-    left: -48%;
+    left: 0;
     width: max-content;
     height: fit-content;
     list-style: none;
@@ -72,14 +81,6 @@
     display: flex;
     flex-direction: column;
     background-color: #5a8967;
-}
-
-.menu-item a, .menu-item a:hover{
-    border: 0;
-    text-decoration: none;
-    color: #5a8967;
-    font-size: 10pt;
-    font-weight: 600;
 }
 
 .nav-logo img {

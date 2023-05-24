@@ -7,6 +7,9 @@ export default function LandingPage() {
             <div className="main-img">
                 <img src={LikeButter} alt="like-butter-logo" />
             </div>
+            <div className="slogan">
+                simple food... elevated
+            </div>
         </div>
     )
 }

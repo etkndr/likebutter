@@ -1,0 +1,57 @@
+.cater-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.menu-title {
+    font-family: 'Yeseva One', cursive;
+    font-size: 45pt;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.price {
+    margin-top: 0;
+    font-size: 10pt;
+}
+
+.choose-one {
+    font-style: italic;
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 10pt;
+}
+
+.cater-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0 0 0;
+}
+
+.item-title {
+    font-weight: 800;
+    font-size: 14pt;
+    margin: 10px 0 0 0;
+}
+
+.item-info {
+    font-weight: 400;
+}
+
+.separate {
+    font-weight: 800;
+    font-size: 15pt;
+    margin-top: 15px;
+    line-height: 0px;
+    letter-spacing: 15px;
+}
+
+.includes {
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 10pt;
+}
