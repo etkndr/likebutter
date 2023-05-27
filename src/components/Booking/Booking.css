@@ -1,0 +1,35 @@
+.form-container {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.booking-form {
+    width: 100%;
+}
+
+.booking-form input, select {
+    width: 100%;
+}
+
+.comments textarea{
+    height: 50pt;
+    width: 100%;
+    max-width: 100%;
+    max-height: 50pt;
+}
+
+.captcha {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+label {
+    font-size: 10pt;
+}

@@ -7,7 +7,7 @@ export default function Breakfast() {
                 BREAKFAST BAR
             </h1>
             <div className="price">
-                ($10 per person)
+                ($10/person)
             </div>
             <div className="choose-one">
                 Choose one of the following breakfast sandwiches:
@@ -25,7 +25,7 @@ export default function Breakfast() {
                         THE MCBUTTER
                     </h3>
                     <div className="item-info">
-                        Thick-cut bacon, egg, cheddar, hashbrown, english muffin
+                        Thick-cut bacon, egg, cheddar, hashbrown, served as a burrito
                     </div>
                 </div>
                 <div className="cater-menu-item">
@@ -36,7 +36,7 @@ export default function Breakfast() {
                         Grilled steak, pimento cheese, tomato jam, scratch-made biscuit
                     </div>
                     <div className="separate">
-                        ...
+                        ....
                     </div>
                 </div>
                 <div className="cater-menu-item">
@@ -44,18 +44,29 @@ export default function Breakfast() {
                         Includes the following sides:
                     </div>
                     <div className="item-title">
-                        Warm fruit bowl
+                        WARM FRUIT BOWL
                     </div>
                     <div className="item-info">
-                        w/ sweet glaze and granola
+                        w/ sweet vanilla glaze and granola
                     </div>
                 </div>
                 <div className="cater-menu-item">
                     <div className="item-title">
-                        Creamy cheese grits
+                        CREAMY CHEESE GRITS
                     </div>
                     <div className="item-info">
                         w/ aged cheddar and roasted garlic
+                    </div>
+                <div className="separate">
+                    ....
+                </div>
+                </div>
+                <div className="cater-menu-item">
+                    <div className="item-title">
+                        DRINKS
+                    </div>
+                    <div className="item-info">
+                        Add Honeybee coffee and OJ for $2/person
                     </div>
                 </div>
             </div>

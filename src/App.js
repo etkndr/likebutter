@@ -6,6 +6,9 @@ import Breakfast from "./components/Menus/Breakfast"
 import Taco from "./components/Menus/Taco"
 import Sandwich from "./components/Menus/Sandwich"
 import Southern from './components/Menus/Southern';
+import Footer from './components/Footer';
+import Gallery from "./components/Gallery"
+import Booking from './components/Booking';
 
 function App() {
   return (
@@ -27,7 +30,14 @@ function App() {
         <Route path="/southern">
           <Southern/>
         </Route>
+        <Route path="/gallery">
+          <Gallery/>
+        </Route>
+        <Route path="/booking">
+          <Booking/>
+        </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }
