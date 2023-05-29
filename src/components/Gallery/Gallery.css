@@ -1,0 +1,38 @@
+.gallery {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.gallery-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0 4px;
+    margin-bottom: 100px;
+    justify-content: center;
+}
+
+.img-container {
+    width: 20%;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.curr-img img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.curr-img {
+    max-height: 70vh;
+    overflow: hidden;
+}
+
+
+
+
