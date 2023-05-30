@@ -14,10 +14,6 @@ export const menuItems = [
         {
           title: 'who we serve',
           url: 'service',
-        },
-        {
-          title: "contact us",
-          url: "contact"
         }
       ],
     },

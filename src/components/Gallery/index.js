@@ -26,11 +26,21 @@ function importSmall(r) {
 
 export default function Gallery() {
     const [currImg, setCurrImg] = useState(imported[0])
+    const [currSmall, setCurrSmall] = useState(importedSmall[0])
 
+    let focus
     const grid = importedSmall.map((img, idx) => {
+        if (importedSmall[idx] === currSmall) {
+            focus = "img-container-focus"
+        } else {
+            focus = "img-container"
+        }
             return (
-                <div className="img-container">
-                        <img src={img} alt={`image-${imported.indexOf(img)}`} onClick={() => setCurrImg(imported[idx])} key={imported.indexOf(img)} className='gallery-img'/>
+                <div className={focus}>
+                        <img src={img} alt={`image-${imported.indexOf(img)}`} onClick={(e) => {
+                            setCurrSmall(importedSmall[idx]) 
+                            setCurrImg(imported[idx])
+                            }} key={imported.indexOf(img)} className="gallery-img"/>
                 </div>
             )
     })

@@ -1,4 +1,5 @@
 import NavBar from "./NavBar";
+import Contact from "./Contact"
 import lbSmall from "../../assets/LB-small.png"
 import { NavLink } from "react-router-dom";
 import "./Navigation.css"
@@ -14,6 +15,9 @@ export default function Header() {
           </div>
         </NavLink>
         <NavBar />
+      </div>
+      <div className="nav-contact">
+        <Contact/>
       </div>
     </header>
   );

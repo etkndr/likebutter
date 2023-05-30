@@ -26,6 +26,15 @@
     width: 100%;
 }
 
+.img-container-focus {
+    box-sizing: border-box;
+    border: 4px solid #d1b63a;
+    width: 19%;
+    height: 15vh;
+    overflow: hidden;
+    margin-bottom: 0.5%;
+}
+
 .img-container {
     width: 19%;
     height: 15vh;
@@ -44,5 +53,5 @@
     height: 70vh;
     width: 97%;
     overflow: hidden;
-    margin: 0.5% auto;
+    margin: 10px auto 20px auto;
 }

@@ -36,7 +36,7 @@ export default function Breakfast() {
                         Grilled steak, pimento cheese, tomato jam, scratch-made biscuit
                     </div>
                     <div className="separate">
-                        ....
+                        ...
                     </div>
                 </div>
                 <div className="cater-menu-item">
@@ -58,7 +58,7 @@ export default function Breakfast() {
                         w/ aged cheddar and roasted garlic
                     </div>
                 <div className="separate">
-                    ....
+                    ...
                 </div>
                 </div>
                 <div className="cater-menu-item">

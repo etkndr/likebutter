@@ -9,6 +9,14 @@ import Southern from './components/Menus/Southern';
 import Footer from './components/Footer';
 import Gallery from "./components/Gallery"
 import Booking from './components/Booking';
+import Mission from "./components/About/Mission"
+import Owners from "./components/About/Owners"
+import Service from "./components/About/Service"
+import {fas} from "@fortawesome/free-solid-svg-icons"
+import {faInstagram} from "@fortawesome/free-brands-svg-icons"
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+library.add(fas, faInstagram)
 
 function App() {
   return (
@@ -35,6 +43,15 @@ function App() {
         </Route>
         <Route path="/booking">
           <Booking/>
+        </Route>
+        <Route path="/mission">
+          <Mission/>
+        </Route>
+        <Route path="/service">
+          <Service/>
+        </Route>
+        <Route path="/owners">
+          <Owners/>
         </Route>
       </Switch>
       <Footer/>
