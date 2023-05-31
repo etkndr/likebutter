@@ -2,6 +2,14 @@
   letter-spacing: 1px;
 }
 
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -10,6 +18,7 @@ body {
   color: #5a8967;
   font-size: 11pt;
   background-color: #e5dac0;
+  max-width: 100%;
 }
 
 a {

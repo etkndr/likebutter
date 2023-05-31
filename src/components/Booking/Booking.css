@@ -1,0 +1,112 @@
+.form-container {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.booking-form {
+    width: 100%;
+}
+
+.booking-form input, select {
+    width: 100%;
+    height: 30px;
+}
+
+.comments textarea{
+    height: 50pt;
+    width: 97%;
+    max-width: 100%;
+    max-height: 50pt;
+    padding-top: 5px;
+}
+
+.captcha {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+label {
+    font-size: 10pt;
+}
+
+.form-field {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.small-bites select {
+    margin-bottom: 10px;
+}
+
+.form-field input, textarea {
+    margin-top: 5px;
+    padding-left: 10px;
+    border: 1px solid #5a8967;
+    border-radius: 5px;
+    font-size: 12pt;
+    color: #5a8967;
+    width: 97%;
+}
+
+.form-field input::placeholder, textarea::placeholder {
+    color: #b5d0bd;
+}
+
+.menu-title {
+    display: flex;
+    justify-content: center;
+}
+
+select {
+    appearance: none;
+    background-color: white;
+    border: 1px solid #5a8967;
+    color: #5a8967;
+    border-radius: 5px;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    padding-left: 10px;
+  }
+
+  .submit button, .submit button:disabled {
+    width: 300px;
+    height: 40px;
+    font-size: 10pt;
+  }
+
+  .submit button {
+    color: #d1b63a;
+    font-weight: 600;
+    border: 1px solid #456b50;
+    background-color: #5a8967;
+  }
+
+  .submit button:disabled {
+    background-color: lightgray;
+    color: gray;
+    border: 1px solid gray;
+  }
+
+  .error {
+    color: red;
+    font-size: 8pt;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 600px) {
+    .form-container {
+        width: 100%;
+    }
+  }

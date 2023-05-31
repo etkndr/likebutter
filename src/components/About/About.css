@@ -1,0 +1,18 @@
+.about {
+    width: 50%;
+    margin: 0px auto 100px auto;
+}
+
+.about p {
+    line-height: 20pt;
+}
+
+@media (max-width: 600px) {
+    .about {
+        width: 70%;
+    }
+
+    .about p {
+        line-height: 17pt;
+    }
+}

@@ -1,3 +1,40 @@
 .content {
     margin: 0 50px 0 50px;
+    min-height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-img {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-img img {
+    width: 60%;
+}
+
+.slogan {
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    font-size: 18pt;
+    font-style: italic;
+    letter-spacing: 0;
+}
+
+@media (max-width: 600px) {
+    .main-img {
+        margin-top: 15vh;
+    }
+
+    .main-img img {
+        width: 100%;
+    }
+
+    .slogan {
+        font-size: 14pt;
+    }
 }
