@@ -124,6 +124,37 @@ header {
     font-size: 12pt;
 }
 
+@media (max-width: 500px) {
+    .nav-area {
+        height: auto;
+        width: 50%;
+        justify-content: flex-start;
+    }
+
+    .nav-contact {
+        height: auto;
+        width: 50%;
+        justify-content: flex-start;
+        padding-top: 15px;
+    }
+
+    .contact {
+        gap: 5px;
+    }
+
+    .nav-logo img {
+        height: 80px;
+    }
+
+    .menus {
+        gap: 5px;
+    }
+
+    header {
+        align-items: flex-start;
+    }
+}
+
 /* .submenu-items {
     width: 100%;
     cursor: pointer;

@@ -36,6 +36,10 @@ export const menuItems = [
         {
           title: "southern comfort",
           url: "southern"
+        },
+        {
+          title: "small bites",
+          url: "small-bites"
         }
       ]
     },

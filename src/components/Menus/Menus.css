@@ -56,3 +56,14 @@
     margin-bottom: 10px;
     font-size: 10pt;
 }
+
+@media (max-width: 600px) {
+    .menu-title {
+        font-size: 23pt;
+        margin-bottom: 20px;
+    }
+
+    .cater-menu {
+        width: 80%;
+    }
+}

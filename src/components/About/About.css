@@ -6,3 +6,13 @@
 .about p {
     line-height: 20pt;
 }
+
+@media (max-width: 600px) {
+    .about {
+        width: 70%;
+    }
+
+    .about p {
+        line-height: 17pt;
+    }
+}

@@ -24,3 +24,17 @@
     font-style: italic;
     letter-spacing: 0;
 }
+
+@media (max-width: 600px) {
+    .main-img {
+        margin-top: 15vh;
+    }
+
+    .main-img img {
+        width: 100%;
+    }
+
+    .slogan {
+        font-size: 14pt;
+    }
+}

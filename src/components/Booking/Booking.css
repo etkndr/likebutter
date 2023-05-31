@@ -41,6 +41,10 @@ label {
     margin-bottom: 10px;
 }
 
+.small-bites select {
+    margin-bottom: 10px;
+}
+
 .form-field input, textarea {
     margin-top: 5px;
     padding-left: 10px;
@@ -99,4 +103,10 @@ select {
     color: red;
     font-size: 8pt;
     margin-top: 5px;
+  }
+
+  @media (max-width: 600px) {
+    .form-container {
+        width: 100%;
+    }
   }

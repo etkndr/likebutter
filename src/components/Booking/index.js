@@ -16,12 +16,19 @@ export default function Booking() {
     const [menu, setMenu] = useState()
     const [entree, setEntree] = useState()
     const [addOns, setAddOns] = useState()
+    const [option1, setOption1] = useState()
+    const [option2, setOption2] = useState()
+    const [option3, setOption3] = useState()
+    const [option4, setOption4] = useState()
+    const [option5, setOption5] = useState()
     const [comments, setComments] = useState("")
     const [phoneErr, setPhoneErr] = useState("")
     const [emailErr, setEmailErr] = useState("")
+    const [sizeErr, setSizeErr] = useState("")
     const [disabled, setDisabled] = useState(true)
     const [captcha, setCaptcha] = useState(false)
     const [menuOptions, setMenuOptions] = useState([])
+    const [entreeText, setEntreeText] = useState("Select an entree")
 
     const submit = (e) => {
         e.preventDefault();
@@ -31,6 +38,7 @@ export default function Booking() {
             .then(() => history.push("/"))
     }
 
+    // ENABLE SUBMIT BUTTON
     useEffect(() => {
         if (
             firstName.length &&
@@ -47,6 +55,7 @@ export default function Booking() {
         }
     }, [firstName, lastName, phone, email, date, size, menu, entree, addOns, captcha])
 
+    // FORM VALIDATION
     useEffect(() => {
         if (email.length && !email?.includes("@" && ".")) {
             setEmailErr("Please enter a valid email address")
@@ -54,6 +63,12 @@ export default function Booking() {
 
         if (email.length === 0 || email?.includes("@" && ".")) {
             setEmailErr("")
+        }
+
+        if (size < 10) {
+            setSizeErr("Minimum of 10 people")
+        } else {
+            setSizeErr("")
         }
         
         if (phone?.length === 12) {
@@ -76,7 +91,17 @@ export default function Booking() {
             if (phone?.length > 12) {
                 setPhoneErr("Phone number cannot be more than 10 digits in length")
             }
-    }, [phone, email, phoneErr, emailErr])
+    }, [phone, email, size, phoneErr, emailErr, sizeErr])
+
+
+    // MENU ITEMS
+    useEffect(() => {
+        if (menu === "Small bites") {
+            setEntreeText("Select number of options")
+        } else {
+            setEntreeText("Select an entree")
+        }
+    }, [menu])
 
     useEffect(() => {
         if (menu === "Breakfast") {
@@ -96,6 +121,12 @@ export default function Booking() {
         if (menu === "Southern") {
             setMenuOptions([["Braised beef", "Ham 'n' gravy"], 
             ["Caesar potato salad", "Cheesy noods"]])
+        }
+
+        if (menu === "Small bites") {
+            setMenuOptions([["Pick 3 ($10/person)", "Pick 5 ($15/person)"], 
+            ["Bruschetta", "Bison meatballs", "Caesar salad boats", "Salmon croquettes", "Stuffed mushrooms", 
+            "Grilled shrimp skewers", "Veggie platter", "Carrot mousse", "Chocolate ganache balls", "House-made cookies"]])
         }
     }, [menu])
 
@@ -163,40 +194,110 @@ export default function Booking() {
                         <input value={size} 
                             name="size"
                             onChange={(e) => setSize(e.target.value)}
-                            type="number">
+                            type="number"
+                            min={10}>
                         </input>
+                        <div className="error">
+                            {sizeErr}
+                        </div>
                     </div>
 
                     <div className="form-field">
                         <select name="menu" value={menu} onChange={(e) => {
                                 setMenu(e.target.value)
                                 setEntree("")
-                                setAddOns("")}}>
+                                setAddOns("")
+                                setOption1("")
+                                setOption2("")
+                                setOption3("")
+                                setOption4("")
+                                setOption5("")}}>
                             <option value="" disabled selected>Select a menu</option>
                             <option value="Breakfast">Breakfast bar</option>
                             <option value="Taco">Taco bar</option>
                             <option value="Sandwich">Sandwich bar</option>
                             <option value="Southern">Southern Comfort</option>
+                            <option value="Small bites">Small bites</option>
                         </select>
                     </div>
 
                     <div className="form-field">
                         <select name="entree" value={entree} onChange={(e) => setEntree(e.target.value)}>
-                            <option value="" disabled defaultValue>Select an entree</option>
+                            <option value="" disabled defaultValue>{entreeText}</option>
                             {menuOptions[0]?.map((entree, idx) => {
                                 return <option value={entree} key={idx}>{entree}</option>
                             })}
                         </select>
                     </div>
 
+                    {menu !== "Small bites" && 
                     <div className="form-field">
-                        <select name="add-ons" value={addOns} onChange={(e) => setAddOns(e.target.value)}>
-                            <option value="" disabled defaultValue>Select a side/add-on</option>
+                            <select name="add-ons" value={addOns} onChange={(e) => setAddOns(e.target.value)}>
+                                <option value="" disabled defaultValue>Select a side/add-on</option>
+                                {menuOptions[1]?.map((addOn, idx) => {
+                                    return <option value={addOn} key={idx}>{addOn}</option>
+                                })}
+                            </select>
+                            </div>
+                    }
+
+                    {entree === "Pick 3 ($10/person)" &&
+                        <div className="small-bites">
+                            <select name="option1" value={option1} onChange={(e) => setOption1(e.target.value)}>
+                                <option value="" disabled defaultValue>Option 1</option>
+                                {menuOptions[1]?.map((addOn, idx) => {
+                                    return <option value={addOn} key={idx}>{addOn}</option>
+                                })}
+                            </select>
+                            <select name="option2" value={option2} onChange={(e) => setOption2(e.target.value)}>
+                            <option value="" disabled defaultValue>Option 2</option>
                             {menuOptions[1]?.map((addOn, idx) => {
                                 return <option value={addOn} key={idx}>{addOn}</option>
                             })}
-                        </select>
-                    </div>
+                            </select>
+                            <select name="option3" value={option3} onChange={(e) => setOption3(e.target.value)}>
+                            <option value="" disabled defaultValue>Option 3</option>
+                            {menuOptions[1]?.map((addOn, idx) => {
+                                return <option value={addOn} key={idx}>{addOn}</option>
+                            })}
+                            </select>
+                        </div>
+                    }
+
+                    {entree === "Pick 5 ($15/person)" &&
+                        <div className="small-bites">
+                            <select name="option1" value={option1} onChange={(e) => setOption1(e.target.value)}>
+                                <option value="" disabled defaultValue>Option 1</option>
+                                {menuOptions[1]?.map((addOn, idx) => {
+                                    return <option value={addOn} key={idx}>{addOn}</option>
+                                })}
+                            </select>
+                            <select name="option2" value={option2} onChange={(e) => setOption2(e.target.value)}>
+                            <option value="" disabled defaultValue>Option 2</option>
+                            {menuOptions[1]?.map((addOn, idx) => {
+                                return <option value={addOn} key={idx}>{addOn}</option>
+                            })}
+                            </select>
+                            <select name="option3" value={option3} onChange={(e) => setOption3(e.target.value)}>
+                            <option value="" disabled defaultValue>Option 3</option>
+                            {menuOptions[1]?.map((addOn, idx) => {
+                                return <option value={addOn} key={idx}>{addOn}</option>
+                            })}
+                            </select>
+                            <select name="option4" value={option4} onChange={(e) => setOption4(e.target.value)}>
+                            <option value="" disabled defaultValue>Option 4</option>
+                            {menuOptions[1]?.map((addOn, idx) => {
+                                return <option value={addOn} key={idx}>{addOn}</option>
+                            })}
+                            </select>
+                            <select name="option5" value={option5} onChange={(e) => setOption5(e.target.value)}>
+                            <option value="" disabled defaultValue>Option 5</option>
+                            {menuOptions[1]?.map((addOn, idx) => {
+                                return <option value={addOn} key={idx}>{addOn}</option>
+                            })}
+                            </select>
+                        </div>
+                    }
 
                     <div className="comments">
                         <label>Additional info and questions

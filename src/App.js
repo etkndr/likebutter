@@ -1,11 +1,12 @@
 import './App.css';
-import { BrowserRouter, Route, Switch} from "react-router-dom"
+import { BrowserRouter, Route, Switch, useHistory} from "react-router-dom"
 import LandingPage from "./components/LandingPage"
 import Header from './components/Navigation/Header';
 import Breakfast from "./components/Menus/Breakfast"
 import Taco from "./components/Menus/Taco"
 import Sandwich from "./components/Menus/Sandwich"
 import Southern from './components/Menus/Southern';
+import Small from './components/Menus/Small';
 import Footer from './components/Footer';
 import Gallery from "./components/Gallery"
 import Booking from './components/Booking';
@@ -19,6 +20,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 library.add(fas, faInstagram)
 
 function App() {
+  const history = useHistory()
+
   return (
     <BrowserRouter>
     <Header/>
@@ -37,6 +40,9 @@ function App() {
         </Route>
         <Route path="/southern">
           <Southern/>
+        </Route>
+        <Route path="/small-bites">
+          <Small/>
         </Route>
         <Route path="/gallery">
           <Gallery/>
