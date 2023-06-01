@@ -20,9 +20,11 @@
     "react-fontawesome": "^1.7.1",
     "react-google-recaptcha": "^2.1.0",
     "react-imgix": "^9.7.0",
+    "react-phone-number-input": "^3.2.23",
     "react-photo-album": "^2.2.2",
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
+    "react-simple-captcha": "^9.0.2",
     "reaptcha": "^1.12.1",
     "web-vitals": "^2.1.4"
   },

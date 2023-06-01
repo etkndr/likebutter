@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import { useHistory } from "react-router-dom"
 import emailjs from '@emailjs/browser'
 import ReCAPTCHA from "react-google-recaptcha"
+import PhoneInput from "react-phone-number-input/input"
 import "./Booking.css"
 
 export default function Booking() {
@@ -66,31 +67,17 @@ export default function Booking() {
         }
 
         if (size < 10) {
-            setSizeErr("Minimum of 10 people")
+            setSizeErr("Please enter a size of 10 people or more")
         } else {
             setSizeErr("")
         }
         
-        if (phone?.length === 12) {
-            if (!phone?.includes("-")) {
-                setPhoneErr("Please include dashes after area code and before last four digits of phone number")
-            } else {
-                phone?.split("-")?.forEach((el) => {
-                    if (!Number(el)) {
-                    setPhoneErr("Phone number can only include numbers and two dashes")
-                }   if (Number(el)) {
-                    setPhoneErr("")
-                }
-            }
-            )}}
-    
-            if (phone?.length < 12 || !phone) {
-                setPhoneErr("")
-            }
-    
-            if (phone?.length > 12) {
-                setPhoneErr("Phone number cannot be more than 10 digits in length")
-            }
+        if (phone && phone?.length !== 12) {
+            setPhoneErr("Please enter a valid phone number")
+        }
+        if (phone && phone.length === 12) {
+            setPhoneErr("")
+        }
     }, [phone, email, size, phoneErr, emailErr, sizeErr])
 
 
@@ -155,13 +142,11 @@ export default function Booking() {
 
                     <div className="form-field">
                         <label>Phone number</label>
-                        <input value={phone} 
+                        <PhoneInput 
+                            country="US"
                             name="phone"
-                            onChange={(e) => setPhone(e.target.value)}
-                            type="tel"
-                            minLength={12}
-                            placeholder="###-###-####">
-                        </input>
+                            onChange={setPhone}
+                            value={phone}/>
                         <div className="error">
                             {phoneErr}
                         </div>
