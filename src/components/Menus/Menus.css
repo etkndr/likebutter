@@ -15,13 +15,20 @@
 
 .price {
     margin-top: 0;
+    margin-bottom: 5px;
     font-size: 10pt;
 }
 
 .choose-one {
     font-style: italic;
-    margin-top: 30px;
+    font-weight: bold;
+    margin-top: 20px;
     margin-bottom: 0;
+    font-size: 10pt;
+}
+
+.taco-includes {
+    font-style: italic;
     font-size: 10pt;
 }
 
@@ -35,11 +42,12 @@
 .item-title {
     font-weight: 800;
     font-size: 14pt;
-    margin: 10px 0 0 0;
+    margin: 10px 0 5px 0;
 }
 
 .item-info {
     font-weight: 400;
+    margin-bottom: 5px;
 }
 
 .separate {

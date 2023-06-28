@@ -17,6 +17,9 @@ export default function Taco() {
                     <div className="item-info">
                         Grilled chicken thigh, pineapple & poblano salsa, sweet & spicy teriyaki, queso fresco
                     </div>
+                    <div className="taco-includes">
+                        Served with Andouille & fried sage rice, charro beans w/ bacon & onion, and chips w/ tomato cucumber salsa & queso
+                    </div>
                 </div>
                 <div className="cater-menu-item">
                     <h3 className="item-title">
@@ -24,6 +27,9 @@ export default function Taco() {
                     </h3>
                     <div className="item-info">
                         Roasted pork tenderloin, pear sauerkraut, apricot & ginger reduction
+                    </div>
+                    <div className="taco-includes">
+                        Served with Andouille & fried sage rice, charro beans w/ bacon & onion, and chips w/ tomato cucumber salsa & queso
                     </div>
                 </div>
                 <div className="cater-menu-item">
