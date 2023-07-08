@@ -26,13 +26,15 @@
 }
 
 .reviews {
-    width: 60%;
+    width: 80%;
     margin: 12vh auto 0 auto;
+    color: #4c7658;
 }
 
 .review {
+    background-color: #5a896716;
     margin: 0 auto;
-    border: 3px solid;
+    border: 0px solid;
     border-radius: 5px;
     padding: 30px;
 }
@@ -44,7 +46,7 @@
 
 .stars .icon {
     margin-top: 1vh;
-    color: #d1b63a;
+    color: #d3b73a;
     font-size: 10pt;
 }
 
@@ -61,7 +63,7 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 2vh;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 @media (max-width: 600px) {
