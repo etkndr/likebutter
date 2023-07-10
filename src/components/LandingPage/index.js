@@ -2,8 +2,11 @@ import { useState, useEffect } from "react"
 import "./LandingPage.css"
 import LikeButter from "../../assets/LikeButter.png"
 import Reviews from "./Reviews"
+import { Wrapper } from "@googlemaps/react-wrapper"
 
 export default function LandingPage() {
+    const lib = ["places"]
+    const key = "AIzaSyAZ2y7dzznlJWMmWDzH9Nx9FEuQzrVupOk"
 
     return (
         <div className="content">
@@ -13,7 +16,9 @@ export default function LandingPage() {
             <div className="slogan">
                 simple food... elevated
             </div>
-            <Reviews />
+            <Wrapper apiKey={key}>
+                <Reviews />
+            </Wrapper>
         </div>
     )
 }

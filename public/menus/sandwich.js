@@ -1,0 +1,37 @@
+export const breakfastMenu =
+    {
+        menuTitle: "SANDWICH BAR",
+        price: "($12/person)",
+        choice: "Choose one of the following sandwiches:",
+        items: [[
+            {
+                title: "CHICKEN PHILLY",
+                description: "Seared chicken breast, roasted garlic aioli, bell pepper, onion, mushroom, hoagie roll"
+            },
+            {
+                title: "HAM 'N' MORE",
+                description: "Roasted ham, smoked gouda, poppyseed mustard, shaved pear, potato roll"
+            },
+            {
+                title: "CUBANO",
+                description: "Roasted pork tenderloin, honey ham, Genoa salami, swiss, sweet pickle, pork-infused mayo, yellow mustard, cubano roll"
+            },
+            {
+                title: "FLYING V",
+                description: "Hummus, red pepper, pickled red onion, quick-pickled cucumber, shaved apple, dill, everything bagel (V)",
+                price: "(+$3/person)"
+            }
+        ],
+        [
+            {
+                title: "CHOOSE TWO SIDES",
+                description: [
+                "Caesar potato salad",
+                "Kettle cooked chips w/ house ranch",
+                "Pasta salad",
+                "Red leaf salad w/ macerated peach, walnut, shaved parmesan, sherry dressing"
+            ]
+            }
+        ]
+        ]
+    }

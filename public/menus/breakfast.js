@@ -1,0 +1,37 @@
+export const breakfastMenu =
+    {
+        menuTitle: "BREAKFAST BAR",
+        price: "($10/person)",
+        choice: "Choose one of the following breakfast sandwiches:",
+        items: [[
+            {
+                title: "THE SEXY SAUSAGE",
+                description: "Smoked sausage, orange marmalade, sriracha mustard, sourdough"
+            },
+            {
+                title: "THE MCBUTTER",
+                description: "Thick-cut bacon, egg, cheddar, hashbrown, served as a burrito"
+            },
+            {
+                title: "STEAK EXPLOSION",
+                description: "Grilled steak, pimento cheese, tomato jam, scratch-made biscuit"
+            }
+        ],
+        [
+            {
+                title: "WARM FRUIT BOWL",
+                description: "w/ sweet vanilla glaze and granola"
+            },
+            {
+                title: "CREAMY CHEESE GRITS",
+                description: "w/ aged cheddar and roasted garlic"
+            }
+        ],
+        [
+            {
+                title: "DRINKS",
+                description: "Add Honeybee coffee and OJ for $2/person"
+            }
+        ]
+        ]
+    }
