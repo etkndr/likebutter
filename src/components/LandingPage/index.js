@@ -5,7 +5,6 @@ import Reviews from "./Reviews"
 import { Wrapper } from "@googlemaps/react-wrapper"
 
 export default function LandingPage() {
-    const lib = ["places"]
     const key = "AIzaSyAZ2y7dzznlJWMmWDzH9Nx9FEuQzrVupOk"
 
     return (
@@ -16,9 +15,7 @@ export default function LandingPage() {
             <div className="slogan">
                 simple food... elevated
             </div>
-            <Wrapper apiKey={key}>
                 <Reviews />
-            </Wrapper>
         </div>
     )
 }
