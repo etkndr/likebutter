@@ -1,66 +1,70 @@
-import './App.css';
-import { BrowserRouter, Route, Switch, useHistory} from "react-router-dom"
-import LandingPage from "./components/LandingPage"
-import Header from './components/Navigation/Header';
-import Breakfast from "./components/Menus/Breakfast"
-import Taco from "./components/Menus/Taco"
-import Sandwich from "./components/Menus/Sandwich"
-import Southern from './components/Menus/Southern';
-import Small from './components/Menus/Small';
-import Footer from './components/Footer';
-import Gallery from "./components/Gallery"
-import Booking from './components/Booking';
-import Mission from "./components/About/Mission"
-import Owners from "./components/About/Owners"
-import Service from "./components/About/Service"
-import {fas} from "@fortawesome/free-solid-svg-icons"
-import {faInstagram} from "@fortawesome/free-brands-svg-icons"
-import { library } from '@fortawesome/fontawesome-svg-core';
+import "./App.css";
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import LandingPage from "./components/LandingPage";
+import Header from "./components/Navigation/Header";
+import Breakfast from "./components/Menus/Breakfast";
+import Taco from "./components/Menus/Taco";
+import Sandwich from "./components/Menus/Sandwich";
+import Southern from "./components/Menus/Southern";
+import Small from "./components/Menus/Small";
+import Footer from "./components/Footer";
+import Gallery from "./components/Gallery";
+import Booking from "./components/Booking";
+import Mission from "./components/About/Mission";
+import Owners from "./components/About/Owners";
+import Service from "./components/About/Service";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import Holiday from "./components/Menus/Holiday";
 
-library.add(fas, faInstagram)
+library.add(fas, faInstagram);
 
 function App() {
-  const history = useHistory()
+  const history = useHistory();
 
   return (
     <BrowserRouter>
-    <Header/>
+      <Header />
       <Switch>
         <Route exact path="/">
-          <LandingPage/>
+          <LandingPage />
         </Route>
         <Route path="/breakfast">
-          <Breakfast/>
+          <Breakfast />
         </Route>
         <Route path="/tacos">
-          <Taco/>
+          <Taco />
         </Route>
         <Route path="/sandwiches">
-          <Sandwich/>
+          <Sandwich />
         </Route>
         <Route path="/southern">
-          <Southern/>
+          <Southern />
         </Route>
         <Route path="/small-bites">
-          <Small/>
+          <Small />
+        </Route>
+        <Route path="/holiday">
+          <Holiday />
         </Route>
         <Route path="/gallery">
-          <Gallery/>
+          <Gallery />
         </Route>
         <Route path="/booking">
-          <Booking/>
+          <Booking />
         </Route>
         <Route path="/mission">
-          <Mission/>
+          <Mission />
         </Route>
         <Route path="/service">
-          <Service/>
+          <Service />
         </Route>
         <Route path="/owners">
-          <Owners/>
+          <Owners />
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

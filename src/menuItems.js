@@ -40,6 +40,10 @@ export const menuItems = [
         {
           title: "small bites",
           url: "small-bites"
+        },
+        {
+          title: "holiday menu",
+          url: "holiday"
         }
       ]
     },
