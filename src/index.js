@@ -1,32 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ErrorBoundary } from "react-error-boundary"
-import LandingPage from './components/LandingPage';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
+import configureStore from "./store";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+import "./index.css";
+
+const store = configureStore();
+
+// if (process.env.NODE_ENV !== "production") {
+// 	window.store = store;
+// 	window.sessionActions = sessionActions;
+// }
+
+// Wrap the application with the Modal provider and render the Modal component
+// after the App component so that all the Modal content will be layered as
+// HTML elements on top of the all the other HTML elements:
+function Root() {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  );
+}
+
+ReactDOM.render(
   <React.StrictMode>
-    <ErrorBoundary
-    FallbackComponent={LandingPage}
-    onError={(error, errorInfo) => {
-    console.log("Error caught!")
-    console.error(error) 
-    console.error(errorInfo)}}
-    onReset={() => {
-            // reloading the page to restore the initial state
-            // of the current page
-            console.log("reloading the page...");
-            window.location.reload()}}>
-    <App />
-    </ErrorBoundary>
-  </React.StrictMode>
+    <Root />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

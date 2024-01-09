@@ -1,5 +1,6 @@
 import {
-  allMenus,
+  visibleMenus,
+  userMenus,
   getMenu,
   newMenu,
   editMenu,
@@ -7,13 +8,31 @@ import {
   createReducer,
 } from "./actions";
 
-export function getAllMenus() {
+const baseUrl = "https://etkndr.pythonanywhere.com";
+
+export function getVisibleMenus() {
   return async (dispatch) => {
-    const res = await fetch(`/api/menus/`);
+    const res = await fetch(`${baseUrl}/api/menus/visible`);
     const data = await res.json();
 
     if (res.ok) {
-      dispatch(allMenus(data));
+      dispatch(visibleMenus(data));
+    } else {
+      if (data.errors) {
+        return data.errors;
+      }
+      return ["Error occured, please try again"];
+    }
+  };
+}
+
+export function getUserMenus() {
+  return async (dispatch) => {
+    const res = await fetch(`${baseUrl}/api/menus/`);
+    const data = await res.json();
+
+    if (res.ok) {
+      dispatch(userMenus(data));
     } else {
       if (data.errors) {
         return data.errors;
@@ -25,7 +44,7 @@ export function getAllMenus() {
 
 export function getMenuById(menuId) {
   return async (dispatch) => {
-    const res = await fetch(`/api/menus/${menuId}`);
+    const res = await fetch(`${baseUrl}/api/menus/${menuId}`);
     const data = await res.json();
 
     if (res.ok) {
@@ -40,7 +59,10 @@ export function getMenuById(menuId) {
 }
 
 export const menus = createReducer([], {
-  ["ALL_MENUS"]: (state, action) => {
+  ["VISIBLE_MENUS"]: (state, action) => {
+    return { ...state, menuList: action.menuList };
+  },
+  ["USER_MENUS"]: (state, action) => {
     return { ...state, menuList: action.menuList };
   },
   ["GET_MENU"]: (state, action) => {

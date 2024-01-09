@@ -18,13 +18,15 @@ export function createReducer(initialState, handlers) {
   };
 }
 
-const ALL_MENUS = "ALL_MENUS";
+const VISIBLE_MENUS = "VISIBLE_MENUS";
+const USER_MENUS = "USER_MENUS";
 const GET_MENU = "GET_MENU";
 const NEW_MENU = "NEW_MENU";
 const EDIT_MENU = "EDIT_MENU";
 const DELETE_MENU = "DELETE_MENU";
 
-export const allMenus = makeActionCreator(ALL_MENUS, "menuList");
+export const visibleMenus = makeActionCreator(VISIBLE_MENUS, "menuList");
+export const userMenus = makeActionCreator(USER_MENUS, "menuList");
 export const getMenu = makeActionCreator(GET_MENU, "menu");
 export const newMenu = makeActionCreator(NEW_MENU, "menu");
 export const editMenu = makeActionCreator(EDIT_MENU, "menu");
