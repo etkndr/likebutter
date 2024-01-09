@@ -11,9 +11,10 @@ export default function Contact() {
     return (
         <ul className="contact">
             <li><FontAwesomeIcon icon="fa-solid fa-phone" className='icon' />{phoneLink}</li>
-            <li><FontAwesomeIcon icon="fa-brands fa-instagram" className='icon'/>
-                <a href="https://www.instagram.com/likebutterknox/" target="_blank" rel="noopener noreferrer">instagram</a>
-            </li>
+            <a href="https://www.instagram.com/likebutterknox/" target="_blank" rel="noopener noreferrer">
+                <li><FontAwesomeIcon icon="fa-brands fa-instagram" className='icon'/>
+                </li>
+            </a>
         </ul>
     )
 }

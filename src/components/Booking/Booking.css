@@ -87,6 +87,7 @@ select {
   }
 
   .submit button {
+    cursor: pointer;
     color: #d1b63a;
     font-weight: 600;
     border: 1px solid #456b50;
@@ -94,6 +95,7 @@ select {
   }
 
   .submit button:disabled {
+    cursor: not-allowed;
     background-color: lightgray;
     color: gray;
     border: 1px solid gray;

@@ -2,8 +2,8 @@ import "./Gallery.css"
 import Selected from "./Selected"
 import {Suspense, useState} from "react"
 
-const imported = importLarge(require.context('../../assets/gallery', false, /\.(png|jpe?g|svg|JPG)$/));
-const importedSmall = importSmall(require.context('../../assets/gallery', false, /\.(png|jpe?g|svg|JPG)$/));
+const imported = importLarge(require.context('../../../public/gallery', false, /\.(png|jpe?g|svg|JPG)$/));
+const importedSmall = importSmall(require.context('../../../public/gallery', false, /\.(png|jpe?g|svg|JPG)$/));
 
 function importLarge(r) {
 	let images = [];

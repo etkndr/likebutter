@@ -1,68 +1,62 @@
+import { useEffect, useState } from "react"
+
 export default function Sandwich() {
+    const [sandwichMenu, setSandwichMenu] = useState()
+    
+    useEffect(() => {
+        const menuFetch = async () => await fetch("https://likebutterknox.com/menus/sandwich.json")
+        .then((res) => res.json())
+        .then((res) => setSandwichMenu(res))
+        
+        menuFetch()
+    },[])
+    
+    if (sandwichMenu) {
+    const {menuTitle, price, choice, items} = sandwichMenu
+    console.log(items[1])
     return (
         <div className="cater-menu">
             <h1 className="menu-title">
-                SANDWICH BAR
+                {menuTitle}
             </h1>
             <div className="price">
-                ($12/person)
+                {price}
             </div>
             <div className="choose-one">
-                Choose one of the following sandwiches:
+                {choice}
             </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        CHICKEN PHILLY
-                    </h3>
-                    <div className="item-info">
-                        Seared chicken breast, roasted garlic aioli, bell pepper, onion, mushroom, hoagie roll
+            {items[0].map((item, idx) => {
+                return (
+                    <div className="cater-menu-item" key={`item-${idx}`}>
+                        <div className="item-title" key={`title-${idx}`}>
+                            {item.title}
+                        </div>
+                        <div className="price" key={`price`}>
+                            {item.price && item.price}
+                        </div>
+                        <div className="item-info" key={`info-${idx}`}>
+                            {item.description}
+                        </div>
                     </div>
-                </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        HAM 'N' MORE
-                    </h3>
-                    <div className="item-info">
-                        Roasted ham, smoked gouda, poppyseed mustard, shaved pear, potato roll
-                    </div>
-                </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        CUBANO
-                    </h3>
-                    <div className="item-info">
-                        Roasted pork tenderloin, honey ham, Genoa salami, swiss, sweet pickle, pork-infused mayo, yellow mustard, cubano roll
-                    </div>
-                </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        FLYING V
-                    </h3>
-                        <div className="price">(+$3/person)</div>
-                    <div className="item-info">
-                        Hummus, red pepper, pickled red onion, quick-pickled cucumber, shaved apple, dill, everything bagel (V)
-                    </div>
+                )
+            })}
                     <div className="separate">
                         ....
                     </div>
-                </div>
                 <div className="cater-menu-item">
                     <div className="item-title">
-                        CHOOSE TWO SIDES
+                        {items[1][0].title}
                     </div>
-                    <div className="item-info">
-                        Caesar potato salad
+                {items[1][0].description.map((item, idx) => {
+                return (
+                    <div className="cater-menu-item" key={`item-${idx}`}>
+                        <div className="item-info" key={`title-${idx}`}>
+                            {item}
+                        </div>
                     </div>
-                    <div className="item-info">
-                        Kettle cooked chips w/ house ranch
-                    </div>
-                    <div className="item-info">
-                        Pasta salad
-                    </div>
-                    <div className="item-info">
-                        Red leaf salad w/ macerated peach, walnut, shaved parmesan, sherry dressing
-                    </div>
+                )
+            })}
                 </div>
             </div>
-    )
+    )}
 }

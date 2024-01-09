@@ -25,6 +25,47 @@
     letter-spacing: 0;
 }
 
+.reviews {
+    width: 70%;
+    margin: 12vh auto 0 auto;
+    color: #4c7658;
+}
+
+.review {
+    background-color: #739c7f28;
+    margin: 0 auto;
+    border: 0px solid;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.review-header {
+    font-weight: 400;
+    font-size: 12pt;
+}
+
+.stars .icon {
+    margin-top: 1vh;
+    color: #d3b73a;
+    font-size: 10pt;
+}
+
+.review-text {
+    font-size: 11pt;
+    font-style: italic;
+    text-justify:distribute-all-lines;
+    line-height: 16pt;
+    margin-top: 2vh;
+}
+
+.author {
+    font-size: 11pt;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2vh;
+    font-weight: 400;
+}
+
 @media (max-width: 600px) {
     .main-img {
         margin-top: 15vh;

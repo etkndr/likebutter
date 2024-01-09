@@ -1,62 +1,65 @@
+import { useEffect, useState } from "react"
+
 export default function Taco() {
+    const [tacoMenu, setTacoMenu] = useState()
+    
+    useEffect(() => {
+        const menuFetch = async () => await fetch("https://likebutterknox.com/menus/taco.json")
+        .then((res) => res.json())
+        .then((res) => setTacoMenu(res))
+        
+        menuFetch()
+    },[])
+    
+    if (tacoMenu) {
+    const {menuTitle, price, choice, items} = tacoMenu
     return (
         <div className="cater-menu">
             <h1 className="menu-title">
-                TACO BAR
+                {menuTitle}
             </h1>
             <div className="price">
-                ($14/person)
+                {price}
             </div>
             <div className="choose-one">
-                Choose one of the following tacos:
+                {choice}
             </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        THEM SWEET THIGHS
-                    </h3>
-                    <div className="item-info">
-                        Grilled chicken thigh, pineapple & poblano salsa, sweet & spicy teriyaki, queso fresco
+            {items[0].map((item, idx) => {
+                return (
+                    <div className="cater-menu-item" key={`item-${idx}`}>
+                        <div className="item-title" key={`title-${idx}`}>
+                            {item.title}
+                        </div>
+                        <div className="price" key={`price-${idx}`}>
+                            {item.price && item.price}
+                        </div>
+                        <div className="item-info" key={`info-${idx}`}>
+                            {item.description}
+                        </div>
+                        <div className="taco-includes" key={`includes-${idx}`}>
+                            {item.addOn && item.addOn}
+                        </div>
                     </div>
-                </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        OINK OINK
-                    </h3>
-                    <div className="item-info">
-                        Roasted pork tenderloin, pear sauerkraut, apricot & ginger reduction
-                    </div>
-                </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        QUESADILLA
-                    </h3>
-                    <div className="price">
-                        (+$2/person)
-                    </div>
-                    <div className="item-info">
-                        Pear sauerkraut, mozarella, spicy dijon mustard (V)
-                    </div>
-                </div>
-                <div className="cater-menu-item">
-                    <h3 className="item-title">
-                        IRON CLAD
-                    </h3>
-                        <div className="price">(+$3/person)</div>
-                    <div className="item-info">
-                        Shredded beef, walnut pesto, creme friache, pickled red onion
-                    </div>
+                )
+            })}
                     <div className="separate">
                         ....
                     </div>
-                </div>
-                <div className="cater-menu-item">
-                    <div className="item-title">
-                        DESSERT
+                    {items[1].map((item, idx) => {
+                return (
+                    <div className="cater-menu-item" key={`item-${idx}`}>
+                        <div className="item-title" key={`title-${idx}`}>
+                            {item.title}
+                        </div>
+                        <div className="taco-includes" key={`price`}>
+                            {item.price && item.price}
+                        </div>
+                        <div className="item-info" key={`info-${idx}`}>
+                            {item.description}
+                        </div>
                     </div>
-                    <div className="item-info">
-                        House-made tres leches cake (+$2/person, minimum of eight servings)
-                    </div>
-                </div>
+                )
+            })}
             </div>
-    )
+    )}
 }
