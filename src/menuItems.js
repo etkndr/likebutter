@@ -1,3 +1,13 @@
+const data = await fetch(
+  `https://etkndr.pythonanywhere.com/api/menus/visible`
+).then((res) => res.json());
+
+const menuArr = [];
+
+data?.forEach((menu) => {
+  menuArr.push({ title: `${menu.title}`, url: `/menus/${menu.id}` });
+});
+
 export const menuItems = [
   {
     title: "company",
@@ -20,32 +30,7 @@ export const menuItems = [
   {
     title: "menus",
     url: "/menus",
-    submenu: [
-      {
-        title: "breakfast bar",
-        url: "breakfast",
-      },
-      {
-        title: "taco bar",
-        url: "tacos",
-      },
-      {
-        title: "sandwich bar",
-        url: "sandwiches",
-      },
-      {
-        title: "the standard",
-        url: "standard",
-      },
-      {
-        title: "small bites",
-        url: "small-bites",
-      },
-      {
-        title: "holiday menu",
-        url: "holiday",
-      },
-    ],
+    submenu: menuArr,
   },
   {
     title: "gallery",
