@@ -1,3 +1,5 @@
+export const baseUrl = "https://etkndr.pythonanywhere.com";
+
 function makeActionCreator(type, ...argNames) {
   return function (...args) {
     const action = { type };

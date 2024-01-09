@@ -6,9 +6,8 @@ import {
   editMenu,
   deleteMenu,
   createReducer,
+  baseUrl,
 } from "./actions";
-
-const baseUrl = "https://etkndr.pythonanywhere.com";
 
 export function getVisibleMenus() {
   return async (dispatch) => {
@@ -78,7 +77,7 @@ export function createMenu(menu) {
   };
 }
 
-export function updateMenuById(menuId, menu) {
+export function editMenuById(menuId, menu) {
   return async (dispatch) => {
     const res = await fetch(`${baseUrl}/api/menus/${menuId}`, {
       method: "PUT",
