@@ -99,7 +99,7 @@ export function deleteDescById(descId) {
 }
 
 export const descs = createReducer([], {
-  ["USER_DESCS"]: (state, action) => {
+  ["ALL_DESCS"]: (state, action) => {
     return { ...state, descList: action.descList };
   },
   ["GET_DESC"]: (state, action) => {

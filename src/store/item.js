@@ -99,7 +99,7 @@ export function deleteItemById(itemId) {
 }
 
 export const items = createReducer([], {
-  ["USER_ITEMS"]: (state, action) => {
+  ["ALL_ITEMS"]: (state, action) => {
     return { ...state, itemList: action.itemList };
   },
   ["GET_ITEM"]: (state, action) => {

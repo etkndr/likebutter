@@ -99,7 +99,7 @@ export function deleteSectionById(sectionId) {
 }
 
 export const sections = createReducer([], {
-  ["USER_SECTIONS"]: (state, action) => {
+  ["ALL_SECTIONS"]: (state, action) => {
     return { ...state, sectionList: action.sectionList };
   },
   ["GET_SECTION"]: (state, action) => {
