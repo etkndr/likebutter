@@ -16,6 +16,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "emailjs": "^4.0.2",
+    "http-proxy-middleware": "2.0.6",
+    "js-cookie": "^3.0.5",
     "next": "^13.4.7",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
@@ -61,5 +63,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

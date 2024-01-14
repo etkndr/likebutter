@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
+import { BrowserRouter } from "react-router-dom"
 
-import configureStore from "./store";
-import App from "./App";
+import configureStore from "./store"
+import App from "./App"
 
-import "./index.css";
+import "./index.css"
 
-const store = configureStore();
+const store = configureStore()
 
 // if (process.env.NODE_ENV !== "production") {
 // 	window.store = store;
@@ -25,7 +25,7 @@ function Root() {
         <App />
       </BrowserRouter>
     </Provider>
-  );
+  )
 }
 
 ReactDOM.render(
@@ -33,4 +33,4 @@ ReactDOM.render(
     <Root />
   </React.StrictMode>,
   document.getElementById("root")
-);
+)
