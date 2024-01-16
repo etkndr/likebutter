@@ -1,27 +1,27 @@
-import "./App.css";
-import { useLocation } from "react-router-dom/cjs/react-router-dom";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import LandingPage from "./components/LandingPage";
-import Header from "./components/Navigation/Header";
-import Footer from "./components/Footer";
-import Gallery from "./components/Gallery";
-import Booking from "./components/Booking";
-import Mission from "./components/About/Mission";
-import Owners from "./components/About/Owners";
-import Service from "./components/About/Service";
-import Admin from "./components/Admin";
-import Menus from "./components/Menus";
+import "./App.css"
+import { useLocation } from "react-router-dom/cjs/react-router-dom"
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom"
+import { fas } from "@fortawesome/free-solid-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import LandingPage from "./components/LandingPage"
+import Header from "./components/Navigation/Header"
+import Footer from "./components/Footer"
+import Gallery from "./components/Gallery"
+import Booking from "./components/Booking"
+import Mission from "./components/About/Mission"
+import Owners from "./components/About/Owners"
+import Service from "./components/About/Service"
+import Admin from "./components/Admin"
+import Menus from "./components/Menus"
 
-library.add(fas, faInstagram);
+library.add(fas, faInstagram)
 
 function App() {
-  const history = useHistory();
+  const history = useHistory()
 
-  const location = useLocation();
-  const hideNav = location.pathname === "/admin";
+  const location = useLocation()
+  const hideNav = location.pathname === "/admin"
 
   return (
     <BrowserRouter basename="/">
@@ -54,7 +54,7 @@ function App() {
       </Switch>
       <Footer />
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
