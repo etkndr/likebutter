@@ -32,21 +32,20 @@ export const authenticate = () => async (dispatch) => {
 }
 
 export const login = (email, password) => async (dispatch) => {
-  const csrf = await fetch(`${baseUrl}/api/auth/user`, {
+  const csrf = fetch(`${baseUrl}/api/auth/user`, {
     method: "GET",
     mode: "cors",
     credentials: "include", // includes cookies, authorization in request headers
   })
     .then((res) => res.json())
-    .then((msg) => `${msg.value}`)
-  console.log(csrf)
+    .then((msg) => `csrf_token=${msg.value}`)
 
   const response = await fetch(`${baseUrl}/api/auth/login`, {
     method: "POST",
     mode: "cors",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
-      csrf_token: csrf,
     },
     body: JSON.stringify({
       email,
