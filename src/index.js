@@ -9,6 +9,19 @@ import { baseUrl } from "./store/actions"
 
 const store = configureStore()
 
+// async function csrf() {
+//   // if (!document.cookies) {
+//   await fetch(`${baseUrl}/api/auth/user`, {
+//     method: "GET",
+//     mode: "cors",
+//     credentials: "include", // includes cookies, authorization in request headers
+//   })
+//     .then((res) => res.json())
+//     .then((msg) => `${msg.csrf_token}`)
+//   // .then(() => console.log(document.cookie))
+//   // }
+// }
+
 // if (process.env.NODE_ENV !== "production") {
 // 	window.store = store;
 // 	window.sessionActions = sessionActions;
@@ -18,6 +31,7 @@ const store = configureStore()
 // after the App component so that all the Modal content will be layered as
 // HTML elements on top of the all the other HTML elements:
 function Root() {
+  // csrf()
   return (
     <Provider store={store}>
       <BrowserRouter>

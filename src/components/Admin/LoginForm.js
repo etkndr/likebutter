@@ -13,9 +13,7 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const data = await dispatch(sessionActions.login(email, password)).then(
-      (res) => console.log(res)
-    )
+    const data = await dispatch(sessionActions.login(email, password))
     // if (data) {
     //   setErrors(data)
     //   console.log(errors)
