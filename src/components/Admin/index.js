@@ -8,6 +8,7 @@ import * as menuActions from "../../store/menu"
 export default function Admin() {
   const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user)
+  console.log(sessionUser)
 
   if (!sessionUser) {
     return <LoginForm />
