@@ -1,3 +1,4 @@
+import axios from "axios"
 import {
   visibleMenus,
   userMenus,
@@ -7,54 +8,55 @@ import {
   deleteMenu,
   createReducer,
   baseUrl,
-} from "./actions";
+} from "./actions"
 
 export function getVisibleMenus() {
   return async (dispatch) => {
-    const res = await fetch(`${baseUrl}/api/menus/visible`);
-    const data = await res.json();
-
+    const res = await fetch(`${baseUrl}/api/menus/visible`)
+    const data = await res.json()
     if (res.ok) {
-      dispatch(visibleMenus(data));
+      dispatch(visibleMenus(data))
     } else {
       if (data.errors) {
-        return data.errors;
+        return data.errors
       }
-      return ["Error occured, please try again"];
+      return ["Error occured, please try again"]
     }
-  };
+  }
 }
 
 export function getUserMenus() {
   return async (dispatch) => {
-    const res = await fetch(`${baseUrl}/api/menus/`);
-    const data = await res.json();
+    const res = await fetch(`${baseUrl}/api/menus/`)
+    const data = await res.json()
 
     if (res.ok) {
-      dispatch(userMenus(data));
+      dispatch(userMenus(data))
     } else {
       if (data.errors) {
-        return data.errors;
+        return data.errors
       }
-      return ["Error occured, please try again"];
+      return ["Error occured, please try again"]
     }
-  };
+  }
 }
 
 export function getMenuById(menuId) {
+  const csrf = document.cookie
+  console.log(csrf)
   return async (dispatch) => {
-    const res = await fetch(`${baseUrl}/api/menus/${menuId}`);
-    const data = await res.json();
+    const res = await fetch(`${baseUrl}/api/menus/${menuId}`)
+    const data = await res.json()
 
     if (res.ok) {
-      dispatch(getMenu(data));
+      dispatch(getMenu(data))
     } else {
       if (data.errors) {
-        return data.errors;
+        return data.errors
       }
-      return ["Error occured, please try again"];
+      return ["Error occured, please try again"]
     }
-  };
+  }
 }
 
 export function createMenu(menu) {
@@ -63,18 +65,18 @@ export function createMenu(menu) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(menu),
-    });
-    const data = await res.json();
+    })
+    const data = await res.json()
 
     if (res.ok) {
-      dispatch(newMenu(data));
+      dispatch(newMenu(data))
     } else {
       if (data.errors) {
-        return data.errors;
+        return data.errors
       }
-      return ["Error occured, please try again"];
+      return ["Error occured, please try again"]
     }
-  };
+  }
 }
 
 export function editMenuById(menuId, menu) {
@@ -83,52 +85,52 @@ export function editMenuById(menuId, menu) {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(menu),
-    });
-    const data = await res.json();
+    })
+    const data = await res.json()
 
     if (res.ok) {
-      dispatch(editMenu(data));
+      dispatch(editMenu(data))
     } else {
       if (data.errors) {
-        return data.errors;
+        return data.errors
       }
-      return ["Error occured, please try again"];
+      return ["Error occured, please try again"]
     }
-  };
+  }
 }
 
 export function deleteMenuById(menuId) {
   return async (dispatch) => {
     const res = await fetch(`${baseUrl}/api/menus/${menuId}`, {
       method: "DELETE",
-    });
-    const data = await res.json();
+    })
+    const data = await res.json()
 
     if (res.ok) {
-      dispatch(deleteMenu(data));
+      dispatch(deleteMenu(data))
     } else {
       if (data.errors) {
-        return data.errors;
+        return data.errors
       }
-      return ["Error occured, please try again"];
+      return ["Error occured, please try again"]
     }
-  };
+  }
 }
 
 export const menus = createReducer([], {
   ["VISIBLE_MENUS"]: (state, action) => {
-    return { ...state, menuList: action.menuList };
+    return { ...state, menuList: action.menuList }
   },
   ["USER_MENUS"]: (state, action) => {
-    return { ...state, menuList: action.menuList };
+    return { ...state, menuList: action.menuList }
   },
   ["GET_MENU"]: (state, action) => {
-    return { ...state, menu: action.menu };
+    return { ...state, menu: action.menu }
   },
   ["EDIT_MENU"]: (state, action) => {
-    return { ...state, menu: action.menu };
+    return { ...state, menu: action.menu }
   },
   ["DELETE_MENU"]: (state, action) => {
-    delete state[action.menu];
+    delete state[action.menu]
   },
-});
+})
