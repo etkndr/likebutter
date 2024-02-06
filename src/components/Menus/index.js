@@ -14,7 +14,6 @@ export default function Menus() {
 
   useEffect(() => {
     dispatch(getMenuById(id)).then(() => setLoaded(true))
-    console.log(menu)
   }, [])
 
   if (!loaded || !menu) {
@@ -29,23 +28,21 @@ export default function Menus() {
         {menu?.sections?.map((section, idx) => {
           const items = section.items
           return (
-            <>
+            <div key={section.id}>
               {section.choice_desc && (
                 <div className="choose-one">{`${section.choice_desc}:`}</div>
               )}
               {items?.map((item, idx) => {
                 const descs = item.descs
                 return (
-                  <div className="cater-menu-item" key={`section-${idx}`}>
-                    <div className="item-title" key={`title-${idx}`}>
-                      {item.title.toUpperCase()}
-                    </div>
+                  <div className="cater-menu-item" key={`item-${item.id}`}>
+                    <div className="item-title">{item.title.toUpperCase()}</div>
                     {item.includes && (
                       <div className="includes">{item.includes}</div>
                     )}
                     {descs?.map((desc, idx) => {
                       return (
-                        <div className="item-info" key={`desc-${idx}`}>
+                        <div className="item-info" key={`desc-${desc.id}`}>
                           {desc.body}
                         </div>
                       )
@@ -53,10 +50,10 @@ export default function Menus() {
                   </div>
                 )
               })}
-              <div className="separate">
+              <div className="separate" key={`separate-${section.id}`}>
                 {idx < menu.sections.length - 1 && `...`}
               </div>
-            </>
+            </div>
           )
         })}
       </div>

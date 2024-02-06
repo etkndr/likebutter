@@ -12,7 +12,6 @@ import Booking from "./components/Booking"
 import Mission from "./components/About/Mission"
 import Owners from "./components/About/Owners"
 import Service from "./components/About/Service"
-import Admin from "./components/Admin"
 import Menus from "./components/Menus"
 
 library.add(fas, faInstagram)
@@ -44,9 +43,6 @@ function App() {
         </Route>
         <Route path="/owners">
           <Owners />
-        </Route>
-        <Route path="/admin">
-          <Admin />
         </Route>
         <Route path="/menus/:id">
           <Menus />
