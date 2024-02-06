@@ -1,12 +1,14 @@
 const data = await fetch(
   `https://etkndr.pythonanywhere.com/api/menus/visible`
-).then((res) => res.json());
+).then((res) => res.json())
 
-const menuArr = [];
+const menuArr = []
 
-data?.forEach((menu) => {
-  menuArr.push({ title: `${menu.title}`, url: `/menus/${menu.id}` });
-});
+if (!data.message) {
+  data?.forEach((menu) => {
+    menuArr.push({ title: `${menu.title}`, url: `/menus/${menu.id}` })
+  })
+}
 
 export const menuItems = [
   {
@@ -40,4 +42,4 @@ export const menuItems = [
     title: "booking",
     url: "/booking",
   },
-];
+]
