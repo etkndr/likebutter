@@ -58,16 +58,17 @@
   justify-content: center;
   font-weight: 800;
   font-size: 15pt;
-  margin-top: 15px;
+  margin-top: 25px;
+  margin-bottom: 12px;
   line-height: 0px;
   letter-spacing: 15px;
 }
 
 .includes {
   font-style: italic;
-  margin-top: 15px;
+  margin-top: 0px;
   margin-bottom: 10px;
-  font-size: 10pt;
+  font-size: 9pt;
 }
 
 @media (max-width: 600px) {

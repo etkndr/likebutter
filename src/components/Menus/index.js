@@ -54,7 +54,7 @@ export default function Menus() {
                   )
                 })}
                 <div className="separate" key={`separate-${section.id}`}>
-                  {idx < Object.keys(menu.sections)?.length - 1 && `...`}
+                  {idx < Object.keys(menu.sections)?.length - 1 && `....`}
                 </div>
               </div>
             )
