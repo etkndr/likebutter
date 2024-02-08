@@ -14,7 +14,7 @@ export default function Menus() {
 
   useEffect(() => {
     dispatch(getMenuById(id)).then(() => setLoaded(true))
-  }, [])
+  }, [id, dispatch])
 
   if (!loaded || !menu) {
     return <>Loading...</>
