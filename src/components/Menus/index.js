@@ -13,7 +13,9 @@ export default function Menus() {
   const menu = useSelector((state) => state.menus.menu)
 
   useEffect(() => {
-    dispatch(getMenuById(id)).then(() => setLoaded(true))
+    if (id) {
+      dispatch(getMenuById(id)).then(() => setLoaded(true))
+    }
   }, [id, dispatch])
 
   if (!loaded || !menu) {
