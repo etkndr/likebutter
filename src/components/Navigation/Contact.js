@@ -1,20 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export default function Contact() {
-    let phoneLink
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        phoneLink = <a href="tel:865-801-8768">(865) 801-8768</a>
-    } else {
-        phoneLink = "(865) 801-8768"
-    }
-
-    return (
-        <ul className="contact">
-            <li><FontAwesomeIcon icon="fa-solid fa-phone" className='icon' />{phoneLink}</li>
-            <a href="https://www.instagram.com/likebutterknox/" target="_blank" rel="noopener noreferrer">
-                <li><FontAwesomeIcon icon="fa-brands fa-instagram" className='icon'/>
-                </li>
-            </a>
-        </ul>
-    )
+  return (
+    <ul className="contact">
+      <a href="tel:865-801-8768">
+        <li>
+          <FontAwesomeIcon icon="fa-solid fa-phone" className="icon" />
+          <span>(865) 801-8768</span>
+        </li>
+      </a>
+      <a
+        href="https://www.instagram.com/likebutterknox/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <li>
+          <FontAwesomeIcon icon="fa-brands fa-instagram" className="icon" />
+        </li>
+      </a>
+    </ul>
+  )
 }

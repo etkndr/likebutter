@@ -31,7 +31,7 @@ export default function Menus() {
           Object.values(menu?.sections)?.map((section, idx) => {
             const items = Object.values(section.items)
             return (
-              <div key={section.id}>
+              <div className="section" key={section.id}>
                 {section.choice_desc && (
                   <div className="choose-one">{`${section.choice_desc}:`}</div>
                 )}

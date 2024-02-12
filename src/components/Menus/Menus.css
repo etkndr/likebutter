@@ -27,9 +27,15 @@
   justify-content: center;
   font-style: italic;
   font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 0;
+  margin: 20px auto 0 auto;
   font-size: 10pt;
+  text-align: center;
+  width: 100%;
+}
+
+.section {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .taco-includes {
@@ -49,11 +55,18 @@
   font-weight: 800;
   font-size: 14pt;
   margin: 10px 0 5px 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .item-info {
   font-weight: 400;
-  margin-bottom: 5px;
+  margin: 5px 20px 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .separate {
@@ -74,7 +87,7 @@
   font-size: 9.5pt;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .menu-title {
     font-size: 23pt;
     margin-bottom: 20px;
@@ -83,4 +96,9 @@
   .cater-menu {
     width: 80%;
   }
+
+  /* .item-title {
+    display: flex;
+    justify-content: flex-start;
+  } */
 }
