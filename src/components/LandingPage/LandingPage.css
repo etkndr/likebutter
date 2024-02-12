@@ -68,7 +68,7 @@
 
 @media (max-width: 767px) {
   .main-img {
-    margin-top: 20vh;
+    margin-top: 0;
   }
 
   .main-img img {

@@ -19,7 +19,11 @@ export default function Menus() {
   }, [id, dispatch])
 
   if (!loaded || !menu) {
-    return <>Loading...</>
+    return (
+      <div className="cater-menu">
+        <div className="price">Loading...</div>
+      </div>
+    )
   }
 
   return (
