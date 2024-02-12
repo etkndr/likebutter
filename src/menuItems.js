@@ -17,15 +17,15 @@ export const menuItems = [
     submenu: [
       {
         title: "meet the owners",
-        url: "owners",
+        url: "/owners",
       },
       {
         title: "our mission",
-        url: "mission",
+        url: "/mission",
       },
       {
         title: "who we serve",
-        url: "service",
+        url: "/service",
       },
     ],
   },

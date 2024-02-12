@@ -29,22 +29,22 @@ function App() {
         <Route exact path="/">
           <LandingPage />
         </Route>
-        <Route path="/gallery">
+        <Route exact path="/gallery">
           <Gallery />
         </Route>
-        <Route path="/booking">
+        <Route exact path="/booking">
           <Booking />
         </Route>
-        <Route path="/mission">
+        <Route exact path="/mission">
           <Mission />
         </Route>
-        <Route path="/service">
+        <Route exact path="/service">
           <Service />
         </Route>
-        <Route path="/owners">
+        <Route exact path="/owners">
           <Owners />
         </Route>
-        <Route path="/menus/:id">
+        <Route exact path="/menus/:id">
           <Menus />
         </Route>
       </Switch>
