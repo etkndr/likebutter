@@ -2,8 +2,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom/cjs/react-router-dom"
 import { getMenuById } from "../../store/menu"
-import { getAllItems } from "../../store/item"
-import { getAllSections } from "../../store/section"
 import "./Menus.css"
 
 export default function Menus() {
@@ -30,7 +28,9 @@ export default function Menus() {
     <>
       <div className="cater-menu">
         <h1 className="menu-title">{menu?.title.toUpperCase()}</h1>
-        <div className="price">{`($${menu?.price}/person)`}</div>
+        <div className="price">
+          {menu?.price > 1 && `($${menu?.price}/person)`}
+        </div>
         {Object.values(menu.sections) &&
           Object.values(menu?.sections)?.map((section, idx) => {
             const items = Object.values(section.items)
