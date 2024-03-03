@@ -29,7 +29,7 @@ export default function Menus() {
       <div className="cater-menu">
         <h1 className="menu-title">{menu?.title.toUpperCase()}</h1>
         <div className="price">
-          {menu?.price > 1 && `($${menu?.price}/person)`}
+          {menu?.price > 0 && `($${menu?.price}/person)`}
         </div>
         {Object.values(menu.sections) &&
           Object.values(menu?.sections)?.map((section, idx) => {
