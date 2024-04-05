@@ -19,6 +19,8 @@ export default function Reviews() {
     setStars([])
     const map = new window.google.maps.Map(ref.current)
     let service = new google.maps.places.PlacesService(map)
+    map.async = true
+    service.async = true
     let request = {
       placeId: "ChIJfYYmp7pJBgMRPft-XA0nNiA",
       fields: ["reviews"],
