@@ -37,7 +37,10 @@ export default function Reviews() {
     setRand(Math.floor(5 * Math.random()))
 
     return setStars([]), setAuthor([]), setRating([]), setText([])
-  }, [])
+  }, [
+    google.maps.places.PlacesService,
+    google.maps.places.PlacesServiceStatus.OK,
+  ])
 
   useEffect(() => {
     reviews?.forEach((review) => {
