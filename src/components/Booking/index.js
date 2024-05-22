@@ -17,6 +17,7 @@ export default function Booking() {
   const [visMenus, setVisMenus] = useState()
   const [menuId, setMenuId] = useState()
   const [selectedMenu, setSelectedMenu] = useState()
+  const [menuItems, setMenuItems] = useState()
   const [entree, setEntree] = useState()
   const [addOns, setAddOns] = useState()
   const [option1, setOption1] = useState()
@@ -101,8 +102,17 @@ export default function Booking() {
     }
   }, [menuId])
 
-  console.log(selectedMenu)
+  useEffect(() => {
+    if (selectedMenu && selectedMenu.sections) {
+      const itemList = []
+      for (const section in selectedMenu.sections) {
+        itemList.push(selectedMenu.sections[section].items)
+      }
+      setMenuItems(itemList)
+    }
+  }, [selectedMenu])
 
+  console.log(menuItems)
   const submit = (e) => {
     e.preventDefault()
 
@@ -209,6 +219,14 @@ export default function Booking() {
               })}
             </select>
           </div>
+
+          {/* <div className="form-field">
+            <select>
+              {selectedMenu?.sections?.map((section) => {
+                return section.items?.map((item) => {})
+              })}
+            </select>
+          </div> */}
 
           {/* <div className="form-field">
             <select
