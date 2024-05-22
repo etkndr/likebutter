@@ -14,8 +14,9 @@ export default function Booking() {
   const [email, setEmail] = useState("")
   const [date, setDate] = useState()
   const [size, setSize] = useState(10)
-  const [menu, setMenu] = useState()
   const [visMenus, setVisMenus] = useState()
+  const [menuId, setMenuId] = useState()
+  const [selectedMenu, setSelectedMenu] = useState()
   const [entree, setEntree] = useState()
   const [addOns, setAddOns] = useState()
   const [option1, setOption1] = useState()
@@ -32,32 +33,12 @@ export default function Booking() {
   const [menuOptions, setMenuOptions] = useState([])
   const [entreeText, setEntreeText] = useState("Select an entree")
 
-  const submit = (e) => {
-    e.preventDefault()
-
-    emailjs
-      .sendForm(
-        "service_fhsb7ts",
-        "template_t1w5k7d",
-        form.current,
-        "tc24K-Tq-aR1Er5qi"
-      )
-      .then(() =>
-        alert(
-          `Thank you for your request, ${firstName}! Our booking manager will be in touch shortly to confirm. Have a great day!`
-        )
-      )
-      .then(() => history.push("/"))
-  }
-
   // get vis menus
-  useEffect(async () => {
-    await fetch("https://etkndr.pythonanywhere.com/api/menus/visible")
+  useEffect(() => {
+    fetch("https://etkndr.pythonanywhere.com/api/menus/visible")
       .then((res) => res.json())
       .then((data) => setVisMenus(data))
   }, [])
-
-  console.log(visMenus)
 
   // ENABLE SUBMIT BUTTON
   useEffect(() => {
@@ -68,7 +49,7 @@ export default function Booking() {
       email.length &&
       size >= 10 &&
       date &&
-      menu &&
+      menuId &&
       entree &&
       captcha
     ) {
@@ -81,7 +62,7 @@ export default function Booking() {
     email,
     date,
     size,
-    menu,
+    menuId,
     entree,
     addOns,
     captcha,
@@ -113,70 +94,32 @@ export default function Booking() {
 
   // MENU ITEMS
   useEffect(() => {
-    if (menu === "Small bites") {
-      setEntreeText("Select number of options")
-    } else {
-      setEntreeText("Select an entree")
+    if (menuId) {
+      fetch(`https://etkndr.pythonanywhere.com/api/menus/${menuId}`)
+        .then((res) => res.json())
+        .then((data) => setSelectedMenu(data))
     }
-  }, [menu])
+  }, [menuId])
 
-  useEffect(() => {
-    if (menu === "Breakfast") {
-      setMenuOptions([
-        ["Sexy Sausage", "McButter", "Steak Explosion"],
-        ["Add coffee & OJ ($2/person)"],
-      ])
-    }
+  console.log(selectedMenu)
 
-    if (menu === "Sandwich") {
-      setMenuOptions([
-        ["Chicken Philly", "Ham 'n' More", "Cubano", "Flying V"],
-        [
-          "Caesar potato salad",
-          "Kettle chips",
-          "Pasta salad",
-          "Red lettuce salad",
-        ],
-      ])
-    }
+  const submit = (e) => {
+    e.preventDefault()
 
-    if (menu === "Taco") {
-      setMenuOptions([
-        [
-          "Sweet Thighs",
-          "Oink Oink",
-          "Iron Clad (+$3/person)",
-          "Quesadilla (+$2/person)",
-        ],
-        ["Add tres leches cake ($3/person)"],
-      ])
-    }
-
-    if (menu === "Southern") {
-      setMenuOptions([
-        ["Braised beef", "Ham 'n' gravy"],
-        ["Caesar potato salad", "Cheesy noods"],
-      ])
-    }
-
-    if (menu === "Small bites") {
-      setMenuOptions([
-        ["Pick 3 ($10/person)", "Pick 5 ($15/person)"],
-        [
-          "Bruschetta",
-          "Bison meatballs",
-          "Caesar salad boats",
-          "Salmon croquettes",
-          "Stuffed mushrooms",
-          "Grilled shrimp skewers",
-          "Veggie platter",
-          "Carrot mousse",
-          "Chocolate ganache balls",
-          "House-made cookies",
-        ],
-      ])
-    }
-  }, [menu])
+    emailjs
+      .sendForm(
+        "service_fhsb7ts",
+        "template_t1w5k7d",
+        form.current,
+        "tc24K-Tq-aR1Er5qi"
+      )
+      .then(() =>
+        alert(
+          `Thank you for your request, ${firstName}! Our booking manager will be in touch shortly to confirm. Have a great day!`
+        )
+      )
+      .then(() => history.push("/"))
+  }
 
   return (
     <div className="content">
@@ -249,26 +192,21 @@ export default function Booking() {
           <div className="form-field">
             <select
               name="menu"
-              value={menu}
+              value={menuId}
               onChange={(e) => {
-                setMenu(e.target.value)
-                setEntree("")
-                setAddOns("")
-                setOption1("")
-                setOption2("")
-                setOption3("")
-                setOption4("")
-                setOption5("")
+                setMenuId(e.target.value)
               }}
             >
-              <option value="" disabled selected>
+              <option value="" selected disabled>
                 Select a menu
               </option>
-              <option value="Breakfast">Breakfast bar</option>
-              <option value="Taco">Taco bar</option>
-              <option value="Sandwich">Sandwich bar</option>
-              <option value="Southern">Southern Comfort</option>
-              <option value="Small bites">Small bites</option>
+              {visMenus?.map((menu) => {
+                return (
+                  <option value={menu.id} key={menu.id}>
+                    {menu.title}
+                  </option>
+                )
+              })}
             </select>
           </div>
 
