@@ -50,11 +50,10 @@ label {
 textarea {
   margin-top: 5px;
   padding-left: 10px;
-  border: 1px solid #5a8967;
-  border-radius: 5px;
   font-size: 12pt;
   color: #5a8967;
   width: 97%;
+  background-color: #f1e8d5;
 }
 
 .form-field input::placeholder,
