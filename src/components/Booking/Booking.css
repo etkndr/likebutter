@@ -50,10 +50,11 @@ label {
 textarea {
   margin-top: 5px;
   padding-left: 10px;
-  font-size: 12pt;
+  font-size: 10pt;
   color: #5a8967;
   width: 97%;
   background-color: #f1e8d5;
+  border: 0px;
 }
 
 .form-field input::placeholder,
@@ -68,10 +69,9 @@ textarea::placeholder {
 
 select {
   appearance: none;
-  background-color: white;
-  border: 1px solid #5a8967;
+  background-color: #f1e8d5;
+  border: 0px;
   color: #5a8967;
-  border-radius: 5px;
   padding: 0 1em 0 0;
   margin: 0;
   width: 100%;
