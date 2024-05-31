@@ -50,18 +50,7 @@ export default function Booking() {
     ) {
       setDisabled(false)
     }
-  }, [
-    firstName,
-    lastName,
-    phone,
-    email,
-    date,
-    size,
-    selectedMenu,
-    entree,
-    addOns,
-    captcha,
-  ])
+  }, [firstName, lastName, phone, email, date, size, selectedMenu, captcha])
 
   // FORM VALIDATION
   useEffect(() => {
@@ -92,19 +81,12 @@ export default function Booking() {
     if (menuId) {
       fetch(`https://etkndr.pythonanywhere.com/api/menus/${menuId}`)
         .then((res) => res.json())
-        .then((data) => setSelectedMenu(data))
+        .then((data) => {
+          setSelectedMenu(data)
+          console.log(data)
+        })
     }
   }, [menuId])
-
-  useEffect(() => {
-    if (selectedMenu && selectedMenu.sections) {
-      const itemList = []
-      for (const section in selectedMenu.sections) {
-        itemList.push(selectedMenu.sections[section].items)
-      }
-      setMenuItems(itemList)
-    }
-  }, [selectedMenu])
 
   const submit = (e) => {
     e.preventDefault()
@@ -196,9 +178,9 @@ export default function Booking() {
             <label>Select a menu</label>
             <select
               name="menu"
-              value={selectedMenu?.title}
+              value={selectedMenu}
               onChange={(e) => {
-                setMenuId(e.target.value)
+                setSelectedMenu(e.target.value)
               }}
             >
               <option value="" selected disabled>
