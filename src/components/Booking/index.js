@@ -112,7 +112,6 @@ export default function Booking() {
     }
   }, [selectedMenu])
 
-  console.log(menuItems)
   const submit = (e) => {
     e.preventDefault()
 
@@ -130,6 +129,8 @@ export default function Booking() {
       )
       .then(() => history.push("/"))
   }
+
+  console.log(selectedMenu)
 
   return (
     <div className="content">
@@ -222,9 +223,10 @@ export default function Booking() {
 
           {/* <div className="form-field">
             <select>
-              {selectedMenu?.sections?.map((section) => {
-                return section.items?.map((item) => {})
-              })}
+              {selectedMenu &&
+                selectedMenu.sections.map((section) => {
+                  return section.items?.map((item) => {})
+                })}
             </select>
           </div> */}
 
