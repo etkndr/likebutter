@@ -196,7 +196,7 @@ export default function Booking() {
             <label>Select a menu</label>
             <select
               name="menu"
-              value={menuId}
+              value={selectedMenu?.title}
               onChange={(e) => {
                 setMenuId(e.target.value)
               }}
@@ -206,7 +206,7 @@ export default function Booking() {
               </option>
               {visMenus?.map((menu) => {
                 return (
-                  <option value={menu.id} key={menu.id}>
+                  <option value={menu.title} key={menu.id}>
                     {menu.title}
                   </option>
                 )
