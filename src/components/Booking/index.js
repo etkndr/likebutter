@@ -45,8 +45,7 @@ export default function Booking() {
       email.length &&
       size >= 10 &&
       date &&
-      menuId &&
-      entree &&
+      selectedMenu &&
       captcha
     ) {
       setDisabled(false)
@@ -58,7 +57,7 @@ export default function Booking() {
     email,
     date,
     size,
-    menuId,
+    selectedMenu,
     entree,
     addOns,
     captcha,
