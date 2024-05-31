@@ -20,11 +20,6 @@ export default function Booking() {
   const [menuItems, setMenuItems] = useState()
   const [entree, setEntree] = useState()
   const [addOns, setAddOns] = useState()
-  const [option1, setOption1] = useState()
-  const [option2, setOption2] = useState()
-  const [option3, setOption3] = useState()
-  const [option4, setOption4] = useState()
-  const [option5, setOption5] = useState()
   const [comments, setComments] = useState("")
   const [phoneErr, setPhoneErr] = useState("")
   const [emailErr, setEmailErr] = useState("")
@@ -130,8 +125,6 @@ export default function Booking() {
       .then(() => history.push("/"))
   }
 
-  console.log(selectedMenu)
-
   return (
     <div className="content">
       <div className="menu-title">PLACE AN ORDER</div>
@@ -201,6 +194,7 @@ export default function Booking() {
           </div>
 
           <div className="form-field">
+            <label>Select a menu</label>
             <select
               name="menu"
               value={menuId}
@@ -209,7 +203,7 @@ export default function Booking() {
               }}
             >
               <option value="" selected disabled>
-                Select a menu
+                Selection
               </option>
               {visMenus?.map((menu) => {
                 return (
